@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>YanHua's 365 Days</title>
+        <title>用 Pelican 搭建 Blog 平台</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
         
@@ -31,20 +31,22 @@
                 
                 
                 
-                    <li ><a href="./category/gong-zuo.html">工作</a></li>
+                    <li class="active"><a href="./category/gong-zuo.html">工作</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
-                
-
-            
-
         
-        
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="./yong-pelican-da-jian-blog-ping-tai.html">用 Pelican 搭建 Blog 平台</a></h1> 
-                    <footer class="post-info">
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="yong-pelican-da-jian-blog-ping-tai.html" rel="bookmark"
+           title="Permalink to 用 Pelican 搭建 Blog 平台">用 Pelican 搭建 Blog 平台</a></h1>
+      
+    </header>
+
+    <div class="entry-content">
+      <footer class="post-info">
         <abbr class="published" title="2012-08-21T10:20:00">
                 周二 21 八月 2012
         </abbr>
@@ -58,7 +60,8 @@
 <p>tags: <a href="./tag/pelican.html">Pelican</a><a href="./tag/restructuredtext.html">reStructuredText</a></p>
 
 
-</footer><!-- /.post-info --><p>以前我都是使用 <a class="reference external" href="http://tiddlywiki.com/">TiddlyWiki</a> 来记录工作中的笔记和心得，TiddlyWiki只有一个HTML文件，小巧简单是它的优势，但是随着内容的增多，管理起来反而不方便了：</p>
+</footer><!-- /.post-info -->
+      <p>以前我都是使用 <a class="reference external" href="http://tiddlywiki.com/">TiddlyWiki</a> 来记录工作中的笔记和心得，TiddlyWiki只有一个HTML文件，小巧简单是它的优势，但是随着内容的增多，管理起来反而不方便了：</p>
 <ol class="arabic simple">
 <li>一个复杂的程序（主要是HTML+JS+CSS）和不断增加的内容混合在一起，难于管理，也不能放在版本管理系统中（冲突难以合并）</li>
 <li>难以自动化转换为其他的文档</li>
@@ -99,27 +102,11 @@ D:\blog&gt;pelican ./content -s pelicanconf.py
 </tbody>
 </table>
 
-                </article>
-                
-                    
-<p class="paginator">
-    
-    Page 1 / 1
-    
-</p>
-
-                
-            </aside><!-- /#featured -->
-            
-        
-        
-        
-            </ol><!-- /#posts-list -->
-            
-            </section><!-- /#content -->
-        
+    </div><!-- /.entry-content -->
     
 
+  </article>
+</section>
 
         <section id="extras" class="body">
         
