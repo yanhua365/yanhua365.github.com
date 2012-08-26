@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 终于有满意的独立博客了!
-category: thinking
+category: reading
 ---
 
 一直想维护一个独立的技术博客，苦于没有多余的精力迟迟未能动手，各技术社区提供的博客我都不满意。最近在玩[GitHub]和[Markdown]的时候发现可以用[jekyll]轻易构建一个自己喜欢的博客了，马上注册了一个[属于自己的域名](http://yanhua365.org)，然后用[SimpleGray](https://github.com/mytharcher/SimpleGray)快速搭起了这个博客，感谢[mytharcher](http://mytharcher.github.com/)提供这么好的主题，且中文文档写的很仔细，使得我少走了不少弯路。下面是[SimpleGray](https://github.com/mytharcher/SimpleGray)里说明用这个博客系统的好处：
