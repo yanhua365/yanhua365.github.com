@@ -43,7 +43,7 @@
 			{% if site.meta.author.gravatar %}<img src="{{ site.meta.gravatar}}{{ site.meta.author.gravatar }}?s=48" />{% endif %}
 			<figcaption><strong>{{ site.meta.author.name }}</strong></figcaption>
 		</figure>
-		<p>Write something about yourself.</p>
+		<p>软件攻城狮，好读书，但不求甚解；爱编码，常欣然忘食。虽了无建树，但自得其乐……</p>
 	</div>
 	
 	<div class="block block-license">
