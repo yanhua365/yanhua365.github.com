@@ -5,7 +5,7 @@ permalink: /posts/:title.html
 exclude:
   - README.md
 
-name: Yan Hua's 365 Days
+name: Yan Hua 365 Days
 host: yanhua365.org
 
 custom:
