@@ -22,7 +22,7 @@ category: development
 			<option value="2" selected>大额</option>
 	</select>
 
-disabled这个属性是修改不了的，如果是一般的表单提交，修改后的值不会提交多服务器，但在这个程序里也不需要修改，点击保存按钮后，JS把表单数据序列化为JSON（包含了amoutType这个下拉框的值），然后用ajax提交了。其实，即使是常规的表单提交也不是没有办法，在Chrome里可以先从DOM里删除select这个下拉框，然后在控制台里输入：
+disabled这个属性是修改不了的，如果是一般的表单提交，disabled的控件的值不会提交多服务器，但在这个程序里也不需要修改，点击保存按钮后，JS把表单数据序列化为JSON（包含了amoutType这个下拉框的值），然后用ajax提交了。其实，即使是常规的表单提交也不是没有办法，在Chrome里可以先从DOM里删除select这个下拉框，然后在控制台里输入：
 
   document.forms[0].appendChild(document.createElement('input')
 
