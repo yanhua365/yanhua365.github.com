@@ -6,7 +6,7 @@ exclude:
   - README.md
 
 name: Yan Hua 365 Days
-host: yanhua365.org
+host: yanhua365.github.com
 
 custom:
     category:
