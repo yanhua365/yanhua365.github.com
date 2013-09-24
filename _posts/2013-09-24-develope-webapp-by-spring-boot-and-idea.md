@@ -6,9 +6,9 @@ category: development
 
 Spring Boot简绍
 ----------------------------------
-Spring Boot是Spring旗下一个新的项目，它本身不提供什么特定的功能，而是提供了一种对现有Spring的各个子项目整合的通用的方式。Spring下的多个子项目提供了从Web到数据访问等各个领域的强大易用功能，并容易使用其灵活强大的IoC容器进行自由组合。但正因如此，使用Spring搭建的项目其结构也是千姿百态，一直以来，都缺乏像RoR或Django这样的全栈式的应用组织框架。Grails算一个，但是是基于Groovy的，而基于Java的通过AOP动态生成代码增强的Spring Roo承载了太多的功能，雄心勃勃但并不成功，此次的Spring Boot要比Spring Roo的目标精简的多，并特别强调了不生成任何代码，只是提供一种组织方式而已。
+Spring Boot是Spring旗下一个新的项目，它本身不提供什么特定的功能，而是提供了一种对现有Spring的各个子项目快速整合的方式。Spring下的多个子项目提供了从Web到数据访问等各个领域的强大易用功能，并可以使用灵活强大的IoC容器对这些子项目进行自由组合。但正因如此，使用Spring搭建的项目其结构也是千姿百态，一直以来，都缺乏像RoR或Django这样的全栈式框架提供的的基于约定的组织方式。Grails算一个，但是是基于Groovy的，而基于Java的通过AOP动态生成代码增强的Spring Roo承载了太多的目标，雄心勃勃但并不成功，此次的Spring Boot的目标要比Spring Roo的精简且专注的多，并特别强调了只是提供整合，不会生成任何代码。
 
-其目标是：
+其主要目标是：
 
 
 - To provide a radically faster and widely accessible 'getting started' experience for all Spring development
@@ -43,23 +43,21 @@ Spring Boot是Spring旗下一个新的项目，它本身不提供什么特定的
 
 ### 运行并让对修改热加载 ###
 
-直接在Idea中debug工程中的Application.java就可以了，这样是支持调试的。访问：
+直接在Idea中debug工程中的Application.java就可以了，这样自然是支持调试的。在浏览器里访问：
 
 	http://localhost:8080/greeting?name=yanhua365
 
-开是不是看到运行结果了？
+就能看到运行结果了。
 
-如果修改了Java代码，需要执行“Build > Make Project”命令（可以使用Ctrl+F9快捷键），然后确认reload修改后的class即可。
+如果修改了Java代码，需要执行“Build > Make Project”命令（可以使用Ctrl+F9快捷键），然后Idea提示是否要reload修改后的class，选择确认即可。
 
-如果要支持修改了Thymeleaf模板而不需要重启程序，需要在```src/main/resources/```下建立一个```application.properties``文件，加入如下内容：
+如果要支持修改了Thymeleaf模板而不需要重启程序，需要在```src/main/resources/```下建立一个```application.properties```文件，加入如下内容：
 
 	spring.thymeleaf.cache: false
 
-每次修改了模板后，同样需要Make一下。刷
+每次修改了模板后，同样需要Make一下。刷新浏览器，马上就可以看到修改生效了。
 
-新浏览器，修改马上生效了。
-
-Spring Boot更多的功能还在进一步探索中，一起来关注这个称手的新项目吧。
+Spring Boot更多的功能还在进一步探索中，大家一起来关注这个称手的新项目吧。
 
 
 [spring.io]: http://spring.io/
