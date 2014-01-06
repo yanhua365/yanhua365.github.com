@@ -25,17 +25,19 @@ Java中的实现
 
 常见的包结构大概是这个样子：
 
-- module1
-    - web
-        - controller
-    - api
-        - controller
-        - vo
-    - service
-    - facade
-    - repository
-      
-- module2
+
+    - module1
+        - web
+            - controller
+        - api
+            - controller
+            - vo
+        - service
+        - facade
+        - repository
+          
+    - module2
+    
 
 
 模块(子系统)管理
