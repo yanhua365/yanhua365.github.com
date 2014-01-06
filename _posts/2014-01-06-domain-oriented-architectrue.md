@@ -24,20 +24,19 @@ Java中的实现
 这里需要说明的一点是，Entity中不能直接访问Dao（一是由于静态语言的限制，二是由于Bob说的面向对象原则的约束），但并不意味着业务逻辑要写在Service里，这样就回退到了Transaction Script模式了。恰恰相反，要把业务逻辑尽可能抽象成与Repository无关的形式，放在Entity中。Service应该是很薄的一层，负责事务边界等功能。
 
 常见的包结构大概是这个样子：
-```
-module1
-  web
-    controller
-  api
-    controller
-    vo
-  service
-  facade
-  repository
 
+module1
+    web
+      controller
+    api
+      controller
+      vo
+    service
+    facade
+    repository
+  
 module2
-  ...  
-```
+
 
 模块(子系统)管理
 -----------------------------
