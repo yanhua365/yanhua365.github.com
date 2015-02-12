@@ -1,37 +1,17 @@
-markdown: kramdown
-pygments: true
-safe: false
-permalink: /posts/:title.html
-exclude:
-  - README.md
+name:   'Yanhua365 Blog'
+url:    'http://yanhua365.github.io'
+author: 'YanHua'
 
-name: Yan Hua 365 Days
-host: yanhua365.github.com
+include:  ['_pages']
 
-custom:
-    category:
-        development: 软件开发
-        life: 生活点滴
-        reading: 阅读写作
-    categories:
-      - name:  development
-        title: 软件开发
+paginate:      10
+paginate_path: '/blog/page:num/'
+permalink:     '/blog/:year/:title/'
+relative_permalinks: false
 
-      - name:  life
-        title: 生活点滴
+excerpt_separator: "{{ more }}"
 
-      - name:  reading
-        title: 阅读写作
-
-meta:
-    author:
-        name: Yan Hua
-        email: yanhua365@gmail.com
-        disqus: yanhua365              # Disqus缩略标识
-        gcse: 006981800463283983968:hkhxpszmcmy     # Google自定义搜索标识ID
-        github: yanhua365                 # GitHub账号
-        gravatar: 8f9a221879da5fb2fa7081ca52288814  # Gravatar头像标识
-
-    disqus: disqus.com/embed.js                     # Disqus评论的JS地址
-    gapi: http://www.google.com/jsapi               # Google API地址
-    gravatar: http://en.gravatar.com/avatar/        # Gravatar头像服务器地址
+safe:     true
+pygments: false
+markdown: 'kramdown'
+timezone: 'Asia/Shanghai'
