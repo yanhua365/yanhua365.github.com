@@ -24,6 +24,7 @@ D:\program\Python26>python D:\resource\python\ez_setup.py
 ```
 D:\program\Python26>Scripts\easy_install virtualenv
 ```
+
 这样就安装完成了，就是这么简单。
 
 ### 创建虚拟环境
@@ -33,6 +34,7 @@ D:\program\Python26>Scripts\easy_install virtualenv
 ```
 D:\resource\viewbordevn>D:\program\Python26\Scripts\virtualenv venv
 ```
+
 创建成功后需要激活这个环境：
 
 ```
