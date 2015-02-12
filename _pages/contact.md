@@ -4,7 +4,7 @@ layout:    contact
 title:     Contact PixelCog
 ---
 
-# Contact Us
+# 联系我
 ------------
 
-You can use the following contact form to send us an email, or you can message us on [twitter](http://twitter.com/pixelcog) or [facebook](http://facebook.com/pixelcog).
+可以给我发送[电子邮件](mailto:yanhua365@foxmail.com), 或者在任何一篇文章下留言即可。
