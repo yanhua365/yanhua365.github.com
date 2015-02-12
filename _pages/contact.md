@@ -1,6 +1,6 @@
 ---
 permalink: /contact/
-layout:    contact
+layout:    default
 title:     Contact YanHua
 ---
 
