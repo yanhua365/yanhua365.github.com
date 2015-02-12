@@ -1,8 +1,7 @@
 ---
 permalink: /about/
 layout:    default
-title:     About YanHua
-nobio:     true
+title:     关于我
 ---
 
 # 关于我
