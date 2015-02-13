@@ -10,7 +10,7 @@ image:  asciidoctor.png
 它的展现，对于我们这些美术基础极差但思维逻辑严谨的程序员来说这样是最好不过的做法了。
 [reveal.js](http://lab.hakim.se/reveal-js/)在现在流行的多个HTML5的slide里也是最炫酷的，而且有几个
 功能非常实用（后面我们会讲到）。
-但是，用HTML去写一个reveal.js的一个slider需要写很多的标签还是挺难也挺繁琐的。如果我们能用AsciiDoc去写的话就简单很多了。
+但是，用HTML去写一个reveal.js的一个slide需要写很多的标签还是挺难也挺繁琐的。如果我们能用AsciiDoc去写的话就简单很多了。
 
 
 {{ more }}
@@ -128,10 +128,45 @@ image:  asciidoctor.png
 
 ### 示例
 
-下面是一个我做的介绍ReviewBoard的幻灯片，可以参考：
+我做了一个[介绍ReviewBoard的幻灯片](http://yanhua365.com/slide-reviewboard/)，里面涵盖了常用的一些功能，可以[查看源代码](https://github.com/yanhua365/slide-reviewboard)来学习这些常用的特性。
+你也可以直接clone这个项目，在此基础上修改制作自己的幻灯片:
 
-    = Review Board介绍
-    :source-highlighter: highlight.js
+    git clone https://github.com/yanhua365/slide-reviewboard.git
+
+
+## reveal.js最好用的几个特性
+
+除了炫酷的效果和多样的皮肤外，reveal.js下面几个特性我觉得也十分实用。
+
+### 多级结构
+
+用两个等号开头(`==`)代表一张幻灯片的开始，比如：
+
+    == Review Board功能概览
+
+    是一套用python编写的用于代码审查的Web程序，支持以下的浏览器：
+
+    * Firefox 3.0+
+    * Internet Explorer 9+
+    * Google Chrome
+
+在演示的时候多张幻灯片可以通过左右箭头来切换。reveal.js独特的地方在于他支持两级目录结构，如果在上面的幻灯片下紧接着放一个三个等号开头的幻灯片，那么代表它的下级页面或者代表了更详细的信息，在演示的时候用向下的箭头才能导航到它。比如：
+
+    [data-background="green"]
+    === 任务列表
+
+    image::img/task-list.png[审查任务列表]
+
+
+这样做的好处是结构清晰，详略得当，在演示的时候可以根据时间等实际情况来觉得是否演示这些细节页面。
+
+> 在这些细节页面上，我使用了`[data-background="green"]`来为这个细节页面指定了一个不同的背景，在演示的时候这有利于提醒观众我们在进行更细节的展示。
+
+
+### 注释功能
+
+使用`[NOTE.speaker]`可以指定下面的内容是本张幻灯片的注释，注释在演示时观众是看不到的。
+
 
     == 代码审查
 
@@ -146,81 +181,14 @@ image:  asciidoctor.png
     雅虎搜索使用Review Board作为他们的代码审查工具。
     --
 
+但演示者可以通过在页面上按一下`s`键，弹出一个窗口看到这些注释：
+
+![查看注释的窗口](/img/posts/revealjs-notes-demo.png)
 
 
-    == Review Board功能概览
-
-    是一套用python编写的用于代码审查的Web程序，支持以下的浏览器：
-
-    * Firefox 3.0+
-    * Internet Explorer 9+
-    * Google Chrome
+除了能看到本张幻灯的内容和注释，还能看到一个计时器以及下一张幻灯的缩略图。
 
 
+### 其他功能
 
-    [data-background="green"]
-    === 任务列表
-
-    image::img/task-list.png[审查任务列表]
-
-    [NOTE.speaker]
-    --
-    这里能看到所有的任务
-    --
-
-    [data-background="green"]
-    === 文件比较
-
-    image::img/diff.png[文件比较]
-
-    [data-background="green"]
-    === 提交注释
-
-    image::img/comment.png[提交注释]
-
-    [data-background="green"]
-    === Issue汇总
-
-    image::img/issue-summary.png[Issue汇总]
-
-    [data-background="green"]
-    === 历史记录
-
-    image::img/history.png[历史记录]
-
-    == 代码评审的两种类型
-
-    [%step]
-    * Pre-commit review
-    * Post-commit review
-
-    [data-background="green"]
-    === Pre-commit review
-
-    ""
-    在代码提交到代码库之前审查。先往Review Board里上传一个diff文件，这样审查者可用对其进行评论，一旦批准，代码会被提交到代码库中。
-    ""
-
-    [data-background="green"]
-    === Post-commit review
-
-    ""
-    代码先提交到代码库中，在之后的某个时间点进行代码审查。发现的问题修改的代码后需要重新提交到代码库中。
-    ""
-
-    [data-background="green"]
-    === 优缺点比较
-
-    ""
-    pre-commit 的好处是在代码入库前就能发现错误，从而避免引起线上产品的问题。缺点就是导致开发时间变长，尤其是在项目紧急的时候比较难贯彻执行。
-    ""
-
-    == pre-commit review的流程
-
-    . 对已修改的代码创建一个review请求，上传diff文件,发布这个请求
-    . 等待评审人查看并给出反馈
-    . 如果评审人提出改进建议，修改本地代码并重新生成diff文件并上传，说明改变的内容，重新发布，跳到第2步
-    . 如果评审人执行了"Ship it"，那么就提交代码到仓库，关闭并提交这个请求
-
-
-    == DEMO
+还有很多其它实用的小功能，比如可以用`[%step]`来指定列表是一步步显示的，可以通过`ESC`键查看所有幻灯片的大纲概览等等。
