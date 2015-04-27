@@ -21,24 +21,20 @@ image:  micro-service-architecture.jpg
 一个服务应用往往要对外提供多个业务接口，这些接口除了要提供一些业务功能外，往往还需要实现一些非功能性的需求，比如我们想要知道接口调用的响应时间、可用率等信息，也想通过开关来对接口进行降级控制，另外对于错误处理、权限验证、数据缓存等也有这非常相似的处理方式，此外，以何种协议来提供远程服务也是所有接口的共性问题。这正是AOP编程最擅长的处理的地方。下面是一个例子：
 
 ```
-
 @Service(name="sample_user_service", version="2.0+")
 @Protocol(name="dubbo")
 @Auth(list=${config_center.internal_auth_list})
 class UserServcieImpl implements UserService{
-
-	@OneLevelCache(key="all_users", timeout="60s", max="10000")
+    @OneLevelCache(key="all_users", timeout="60s", max="10000")
     @SecondLevelCache(key="all_users")
     @Monitor(key="find_all_users")
     @Switch(key="find_all_users")	
-	public List<User> findAllUsers(){
-		//查询数据库得到所有的用户数据
+    public List<User> findAllUsers(){
+        //查询数据库得到所有的用户数据
         //如果抛出SystemException类型的异常，在统计时会影响方法的可用率
         //如果抛出BizException类型的异常，则是业务的一部分，不会影响方法的可用率
     }
-	
 }
-
 ```
 
 
