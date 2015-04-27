@@ -28,7 +28,7 @@ class UserServcieImpl implements UserService{
     @OneLevelCache(key="all_users", timeout="60s", max="10000")
     @SecondLevelCache(key="all_users")
     @Monitor(key="find_all_users")
-    @Switch(key="find_all_users")	
+    @Switch(key="find_all_users")   
     public List<User> findAllUsers(){
         //查询数据库得到所有的用户数据
         //如果抛出SystemException类型的异常，在统计时会影响方法的可用率
@@ -36,7 +36,6 @@ class UserServcieImpl implements UserService{
     }
 }
 ```
-
 
 这个接口用注解描述了它很多非功能性需求，剩下要编写的业务只关注业务本身，非常简洁清晰。我们可以把这些注解叫做接口的元数据，当然，它也可以使用配置文件的形式存在。我们举几个例子来说明一下这种做法的好处：
 
