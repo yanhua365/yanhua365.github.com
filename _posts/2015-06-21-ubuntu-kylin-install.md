@@ -26,7 +26,6 @@ image:  gcal-backup.png
   git config --global user.name "yanhua365"
   git config --global user.email "yanhua365@foxmail.com"
 
-
 生成SSH Key并配置到GitHub： https://help.github.com/articles/generating-ssh-keys/
 
 ### Java开发环境的安装
