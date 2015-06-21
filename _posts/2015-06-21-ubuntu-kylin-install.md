@@ -19,12 +19,12 @@ image:  gcal-backup.png
 
 ### 安装Git
 
-  sudo apt-get install git-core
+    sudo apt-get install git-core
 
 然后配置Git：
 
-  git config --global user.name "yanhua365"
-  git config --global user.email "yanhua365@foxmail.com"
+    git config --global user.name "yanhua365"
+    git config --global user.email "yanhua365@foxmail.com"
 
 生成SSH Key并配置到GitHub： https://help.github.com/articles/generating-ssh-keys/
 
@@ -36,23 +36,18 @@ http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.h
 
 在` ~/.profile` 文件里添加：
 
-
-  export JAVA_HOME=/usr/local/jdk1.8.0_45
-  export PATH=$JAVA_HOME/bin:$PATH
-
+    export JAVA_HOME=/usr/local/jdk1.8.0_45
+    export PATH=$JAVA_HOME/bin:$PATH
 
 然后重启，JAVA就生效了。
 
 
 maven的安装方式与此类似。
 
-
 安装Intellij IDEA：
 
-
-  tar xfz ./ideaIU-14.1.3.tar.gz
-  sudo mv ./idea-IU-141.1010.3 /usr/local/idea-14
-
+    tar xfz ./ideaIU-14.1.3.tar.gz
+    sudo mv ./idea-IU-141.1010.3 /usr/local/idea-14
 
 由于是IDEA快捷键的重度用户，所以需要把系统里和IDEA冲突的快捷键都禁止掉。除了在系统里设置外，还需要在软件中心安装`Unity Tweak Tool`，另外输入法里也把快捷键都改成和IDEA不冲突的。
 
@@ -60,35 +55,29 @@ maven的安装方式与此类似。
 
 到 https://nodejs.org/ 下载最新的nodejs(下载binary的版本)，然后解压：
 
-
-  tar xfz node-v0.12.4-linux-x64.tar.gz
-
+    tar xfz node-v0.12.4-linux-x64.tar.gz
 
 移动到合适的目录：
 
-
-  sudo mv ./node-v0.12.4-linux-x64 /usr/local/node-v0.12.4-linux-64
-
+    sudo mv ./node-v0.12.4-linux-x64 /usr/local/node-v0.12.4-linux-64
 
 然后，设置连接：
 
-
-  sudo ln -s /usr/local/node-v0.12.4-linux-64/bin/node /usr/local/bin/node
-  sudo ln -s /usr/local/node-v0.12.4-linux-64/bin/npm /usr/local/bin/npm
+    sudo ln -s /usr/local/node-v0.12.4-linux-64/bin/node /usr/local/bin/node
+    sudo ln -s /usr/local/node-v0.12.4-linux-64/bin/npm /usr/local/bin/npm
 
 
 这样就可以了。
 为了使用国内的淘宝的源，可以安装他们的cnpm：
 
-  sudo npm install -g cnpm --registry=https://registry.npm.taobao.org
-
+    sudo npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 以后就可以运行cnpm代替npm命令了。详细参考： http://npm.taobao.org/
 
 ### 安装atom
 直接下载atom的deb包，双击就可以安装。编辑中文会出现乱码，查看一下系统里安装了什么中文字体：
 
-  fc-list :lang=zh
+    fc-list :lang=zh
 
 比如发现安装了`方正黑体_GBK`，那么，在`Setting`里把`Font Famliy`设置为`DejaVu Sans Mono,方正黑体_GBK`即可。
 
@@ -98,15 +87,15 @@ maven的安装方式与此类似。
 
 ### 安装svn
 
-  sudo apt-get install subversion subversion-tools
-  sudo apt-get install git-svn
+    sudo apt-get install subversion subversion-tools
+    sudo apt-get install git-svn
 
 ### 安装GVM
 
-  curl -s get.gvmtool.net | bash
+    curl -s get.gvmtool.net | bash
 
 安装成功后，按提示打开新窗口，就可以使用gvm了，比如安装groovvy：
 
-  gvm install groovy
+    gvm install groovy
 
 更多的使用方法请看： http://gvmtool.net/
