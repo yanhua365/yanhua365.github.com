@@ -2,7 +2,7 @@
 layout: post
 title:  安装优麒麟操作系统和常用的软件
 tags:   blogging
-image:  gcal-backup.png.jpg
+image:  gcal-backup.png
 ---
 
 最近在使用Git，经常会用到Git的命令行，发现开发时很多事情用命令行比图形化界面要高效的多，所以突然想给自己的电脑里安装个linux系统，
