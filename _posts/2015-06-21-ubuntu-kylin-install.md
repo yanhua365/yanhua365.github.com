@@ -15,7 +15,7 @@ image:  gcal-backup.png
 
 ### 系统安装
 
-从 http://www.ubuntukylin.com/ 上下载14.04的ISO文件，然后下载`LinuxLive USB Creator 2.9.3.exe`制作U盘安装盘，按说明文档安装就可以了。
+从 [优麒麟官网上](http://www.ubuntukylin.com/) 下载14.04的ISO文件，然后下载`LinuxLive USB Creator 2.9.3.exe`制作U盘安装盘，按说明文档安装就可以了。
 
 ### 安装Git
 
@@ -26,12 +26,11 @@ image:  gcal-backup.png
     git config --global user.name "yanhua365"
     git config --global user.email "yanhua365@foxmail.com"
 
-生成SSH Key并配置到GitHub： https://help.github.com/articles/generating-ssh-keys/
+生成并配置SSH Key请参考 [GitHub上的帮助](https://help.github.com/articles/generating-ssh-keys/)。
 
 ### Java开发环境的安装
 
-http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-下载 `jdk-8u45-linux-x64.tar.gz` 解压，`tar xfz jdk-8u45-linux-x64.tar.gz`，
+从[Java的官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)上下载 `jdk-8u45-linux-x64.tar.gz` 解压，`tar xfz jdk-8u45-linux-x64.tar.gz`，
 然后拷贝 ` sudo mv ./jdk1.8.0_45 /usr/local/jdk1.8.0_45`
 
 在` ~/.profile` 文件里添加：
@@ -53,7 +52,7 @@ maven的安装方式与此类似。
 
 ### 安装nodejs
 
-到 https://nodejs.org/ 下载最新的nodejs(下载binary的版本)，然后解压：
+[下载](https://nodejs.org/)最新的nodejs(下载binary的版本)，然后解压：
 
     tar xfz node-v0.12.4-linux-x64.tar.gz
 
@@ -72,7 +71,7 @@ maven的安装方式与此类似。
 
     sudo npm install -g cnpm --registry=https://registry.npm.taobao.org
 
-以后就可以运行cnpm代替npm命令了。详细参考： http://npm.taobao.org/
+以后就可以运行cnpm代替npm命令了。详细参考[官网说明](http://npm.taobao.org/)
 
 ### 安装atom
 直接下载atom的deb包，双击就可以安装。编辑中文会出现乱码，查看一下系统里安装了什么中文字体：
@@ -99,3 +98,16 @@ maven的安装方式与此类似。
     gvm install groovy
 
 更多的使用方法请看： http://gvmtool.net/
+
+
+### 安装Asciidoctor
+
+如果还没有安装ruby，先安装：
+
+    sudo apt-get install ruby
+
+然后：
+
+    sudo gem install asciidoctor
+
+这样就可以了。
