@@ -17,6 +17,14 @@ image:  gcal-backup.png
 
 从 [优麒麟官网上](http://www.ubuntukylin.com/) 下载14.04的ISO文件，然后下载`LinuxLive USB Creator 2.9.3.exe`制作U盘安装盘，按说明文档安装就可以了。
 
+
+### 安装无线网卡驱动
+
+Ubuntu的无线网络特别的慢，特别的不稳定。可以更新驱动程序。
+
+在 `系统设置->软件和更新->附加驱动` 选择 `bradcom 802.11` 的那个专有驱动，点击"应用更改"按钮等待下载安装即可。
+
+
 ### 安装Git
 
     sudo apt-get install git-core
