@@ -107,15 +107,7 @@ image:  asciidoctor.png
 
 但这时候还不能运行，因为还没有reveal.js的文件，在当前目录用git下载一个：
 
-     git clone git://github.com/hakimel/reveal.js.git
-
-但这时还是不能正常运行，这是因为最新的reveal.js较之前有了一些变化，asciidoctor-reveal.js还没有做相应的改动，需要：
-
-- `reveal.js\js\reveal.js`复制一份为`reveal.js\js\reveal.min.js`
-
-- `reveal.js\css\reveal.css`复制一份为`reveal.js\css\reveal.min.css`
-
-- `reveal.js\css\theme\black.css`复制一份为`reveal.js\css\theme\default.css`
+     $ git clone -b 3.0.0 git://github.com/hakimel/reveal.js.git
 
 这样就可以了。
 
