@@ -66,7 +66,7 @@ Git本身并不会强制你使用那种工作流程，这里介绍的四种常�
 
 #### 一个人创建中央仓库
 
-[创建中央仓库](/img/posts/git-workflow-04.svg)
+![创建中央仓库](/img/posts/git-workflow-04.svg)
 
 首先得有个人来在服务器上创建一个中央仓库（空仓库或者从已有的Git或SVN仓库导入），中央仓库必须是`bare`类型的：
 
@@ -74,7 +74,7 @@ Git本身并不会强制你使用那种工作流程，这里介绍的四种常�
 
 #### 每个人都克隆中央仓库
 
-[克隆中央仓库](/img/posts/git-workflow-05.svg)
+![克隆中央仓库](/img/posts/git-workflow-05.svg)
 
     git clone ssh://user@host/path/to/repo.git
 
@@ -82,7 +82,7 @@ Git本身并不会强制你使用那种工作流程，这里介绍的四种常�
 
 #### John开发他的特性
 
-[John在本地开发](/img/posts/git-workflow-06.svg)
+![John在本地开发](/img/posts/git-workflow-06.svg)
 
 在他的本地分支上，John可以用标准的Git提交流程来开发新功能——编辑（edit），缓存（stage），提交（commit）：
 
@@ -95,13 +95,13 @@ Git本身并不会强制你使用那种工作流程，这里介绍的四种常�
 
 #### Mary开发她的分支
 
-[Mary在本地开发](/img/posts/git-workflow-07.svg)
+![Mary在本地开发](/img/posts/git-workflow-07.svg)
 
 和John一样，Mary在本地开发她的特性，这时他们互不干扰，因为本地分支是私有的。
 
 #### John发布他的功能
 
-[Mary在本地开发](/img/posts/git-workflow-08.svg)
+![Mary在本地开发](/img/posts/git-workflow-08.svg)
 
 一旦John完成了他的功能的开发，他就应该把他本地的提交都发布到中央仓库中去，以便其他成员可以访问：
 
@@ -112,7 +112,7 @@ Git本身并不会强制你使用那种工作流程，这里介绍的四种常�
 
 #### Mary也试图发布她的功能
 
-[Mary在本地开发](/img/posts/git-workflow-09.svg)
+![Mary在本地开发](/img/posts/git-workflow-09.svg)
 
 在John发布了他的功能以后，Mary也开发完成了，她试图用同样的方式来发布自己的功能：
 
@@ -131,7 +131,7 @@ Git会拒绝这次推送：
 
 #### Mary在John提交的基础上做rebase
 
-[Mary在本地开发](/img/posts/git-workflow-10.svg)
+![Mary在本地开发](/img/posts/git-workflow-10.svg)
 
 Mary使用`pull`命令来拉取John的更新，这很像SVN的`svn update`,把远程的更新拉取到本地仓库并和本地的提交合并。
 
