@@ -80,7 +80,7 @@ Git本身并不会强制你使用那种工作流程，这里介绍的四种常�
 
 当你克隆之后，Git会自动添加一个名为`origin`的快捷方式，它指向这个远程的“父”仓库。
 
-#### John开发他的特性
+#### John开发他的功能
 
 ![John在本地开发](/img/posts/git-workflow-06.svg)
 
@@ -90,16 +90,16 @@ Git本身并不会强制你使用那种工作流程，这里介绍的四种常�
     git add <some-file> # Stage a file
     git commit # Commit a file</some-file>
 
-由于这些都是在操作本地分支，John可以循环往复的执行上面的过程而不需要与远程仓库交互。当开发一个大的特性，需要拆分成几个
+由于这些都是在操作本地分支，John可以循环往复的执行上面的过程而不需要与远程仓库交互。当开发一个大的功能时，需要拆分成几个
 小的模块时这非常有用。
 
-#### Mary开发她的分支
+#### Mary开发她的功能
 
 ![Mary在本地开发](/img/posts/git-workflow-07.svg)
 
-和John一样，Mary在本地开发她的特性，这时他们互不干扰，因为本地分支是私有的。
+和John一样，Mary在本地开发她的功能，这时他们互不干扰，因为本地分支是私有的。
 
-#### John发布他的功能
+#### John发布他的特性
 
 ![Mary在本地开发](/img/posts/git-workflow-08.svg)
 
@@ -110,7 +110,7 @@ Git本身并不会强制你使用那种工作流程，这里介绍的四种常�
 `origin`代表了一个中央仓库的远程连接，它是在John克隆它的时候自动创建的。`master`参数的意思是让`origin`的master分支
 变得和本地分支一样。John的这次推送成功了，没有发生任何的冲突，因为从John克隆仓库的时候直到现在，中央仓库还未曾改变过。
 
-#### Mary也试图发布她的功能
+#### Mary也试图发布她的特性
 
 ![Mary在本地开发](/img/posts/git-workflow-09.svg)
 
@@ -129,17 +129,61 @@ Git会拒绝这次推送：
 
 这避免了Mary去改写正式仓库的历史。Mary需要拉取John更新的内容到她本地仓库，和她的本地提交合并，然后再尝试发布。
 
-#### Mary在John提交的基础上做rebase
+#### Mary在John发布的基础上做rebase
 
 ![Mary在本地开发](/img/posts/git-workflow-10.svg)
 
-Mary使用`pull`命令来拉取John的更新，这很像SVN的`svn update`,把远程的更新拉取到本地仓库并和本地的提交合并。
+Mary使用`pull`命令来拉取John的更改，这很像SVN的`svn update`,把远程的更改拉取到本地仓库并和本地的提交合并。
 
     git pull --rebase origin master
 
+`--rebase`这个选项告诉Git从远程中央仓库同步改变到master分支后，把Mary的本地提交移动到这些远程改变之后。如下图所示：
+
+![Mary在本地开发](/img/posts/git-workflow-11.svg)
+
+如该忘了加这个选项，会产生一个多余的“合并提交”，对这种工作流来说，最好使用`rebase`，而不是产生“合并提交”。
+
+#### Mary解决冲突
+
+![Mary在本地开发](/img/posts/git-workflow-12.svg)
+
+如果Mary和John修改的是两个不相关的功能，一般也不会产生冲突。如果确实产生了冲突，Git会暂停当前的`rebase`操作，会显示下面的信息：
+
+    CONFLICT (content): Merge conflict in <some-file>
+
+![Mary在本地开发](/img/posts/git-workflow-13.svg)
+
+这时，Mary只要运行`git status`命令就能看到哪里冲突了：
+
+    # Unmerged paths:
+    # (use "git reset HEAD <some-file>..." to unstage)
+    # (use "git add/rm <some-file>..." as appropriate to mark resolution)
+    #
+    # both modified: <some-file>
+
+Mary会编辑这些冲突的文件，然后缓存这些修改后的文件，并让`rebase`继续：
+
+    git add <some-file>
+    git rebase --continue
+
+Git会继续处理下一个提交，如果出现冲突用相同的方式处理即可。
+
+如果觉得实在无法解决冲突，可以执行下面的命令回滚这次`rebase`，重新回到执行`pull`前的状态：
+
+    git rebase --abort
+
+#### Mary成功发布她的功能
+
+![Mary在本地开发](/img/posts/git-workflow-14.svg)
+
+这时Mary可以很容易的发布自己的功能了：
+
+    git push origin master
+
+可以看到，使用Git也可以实现传统SVN方式的工作流程，但这并没有充分发挥Git分布式的特性。下一节我们会探讨功能分支工作流的使用方式。
 
 
-## 特性分支工作流
+## 功能分支工作流
 
 
 ## Gitflow工作流
