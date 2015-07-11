@@ -61,7 +61,82 @@ Git本身并不会强制你使用那种工作流程，这里介绍的四种常�
 
 ### 示例
 
-暂略
+让我们一步步看看一个典型的小团队是如何用这种工作流来协作的。团队中有两个开发者，John和Mary，他们在独立地开发各自的功能，
+然后通过中央仓库来分享他们的成果。
+
+#### 一个人创建中央仓库
+
+[创建中央仓库](/img/posts/git-workflow-04.svg)
+
+首先得有个人来在服务器上创建一个中央仓库（空仓库或者从已有的Git或SVN仓库导入），中央仓库必须是`bare`类型的：
+
+    ssh user@host git init --bare /path/to/repo.git
+
+#### 每个人都克隆中央仓库
+
+[克隆中央仓库](/img/posts/git-workflow-05.svg)
+
+    git clone ssh://user@host/path/to/repo.git
+
+当你克隆之后，Git会自动添加一个名为`origin`的快捷方式，它指向这个远程的“父”仓库。
+
+#### John开发他的特性
+
+[John在本地开发](/img/posts/git-workflow-06.svg)
+
+在他的本地分支上，John可以用标准的Git提交流程来开发新功能——编辑（edit），缓存（stage），提交（commit）：
+
+    git status # View the state of the repo
+    git add <some-file> # Stage a file
+    git commit # Commit a file</some-file>
+
+由于这些都是在操作本地分支，John可以循环往复的执行上面的过程而不需要与远程仓库交互。当开发一个大的特性，需要拆分成几个
+小的模块时这非常有用。
+
+#### Mary开发她的分支
+
+[Mary在本地开发](/img/posts/git-workflow-07.svg)
+
+和John一样，Mary在本地开发她的特性，这时他们互不干扰，因为本地分支是私有的。
+
+#### John发布他的功能
+
+[Mary在本地开发](/img/posts/git-workflow-08.svg)
+
+一旦John完成了他的功能的开发，他就应该把他本地的提交都发布到中央仓库中去，以便其他成员可以访问：
+
+    git push origin master
+
+`origin`代表了一个中央仓库的远程连接，它是在John克隆它的时候自动创建的。`master`参数的意思是让`origin`的master分支
+变得和本地分支一样。John的这次推送成功了，没有发生任何的冲突，因为从John克隆仓库的时候直到现在，中央仓库还未曾改变过。
+
+#### Mary也试图发布她的功能
+
+[Mary在本地开发](/img/posts/git-workflow-09.svg)
+
+在John发布了他的功能以后，Mary也开发完成了，她试图用同样的方式来发布自己的功能：
+
+    git push origin master
+
+但是，由于她的本地历史和中央仓库的历史已经发生了偏差（现在中央仓库的状态和她克隆的时候已经不一样了，多了John发布的东西），
+Git会拒绝这次推送：
+
+    error: failed to push some refs to '/path/to/repo.git'
+    hint: Updates were rejected because the tip of your current branch is behind
+    hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
+    hint: before pushing again.
+    hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+这避免了Mary去改写正式仓库的历史。Mary需要拉取John更新的内容到她本地仓库，和她的本地提交合并，然后再尝试发布。
+
+#### Mary在John提交的基础上做rebase
+
+[Mary在本地开发](/img/posts/git-workflow-10.svg)
+
+Mary使用`pull`命令来拉取John的更新，这很像SVN的`svn update`,把远程的更新拉取到本地仓库并和本地的提交合并。
+
+    git pull --rebase origin master
+
 
 
 ## 特性分支工作流
